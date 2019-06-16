@@ -25,6 +25,10 @@ test('sample input[5] matches expected output[5]', () => {
   expect(convertForeignGridToLocalGrid(input[5])).toEqual(output[5]);
 });
 
+test('sample input[6] matches expected output[6]', () => {
+  expect(convertForeignGridToLocalGrid(input[6])).toEqual(output[6]);
+});
+
 test('throw exception if input has seat without width', () => {
   const inp = input[0].map(e => ({ ...e}));
   delete inp[0].width;
@@ -42,3 +46,4 @@ test('throw exception if input has seat without y', () => {
   delete inp[0].y;
   expect(() => convertForeignGridToLocalGrid(inp)).toThrowError('all seats should have y>=0');
 });
+
