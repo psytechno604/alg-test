@@ -6,12 +6,15 @@ const {
   drawCoordinateGrid
 } = require('coordinate-grid');
 
-const localGrid = convertForeignGridToLocalGrid(sampleData, 10);
+const localGrid = sampleData.map(inp => convertForeignGridToLocalGrid(inp));
 
-console.log(
-  drawCoordinateGrid(
-    localGrid.map((seat) => {
-      return createCoordinateGridMember(seat.x, seat.y, 'x')
-    }), ' '
-  )
-);
+localGrid.map(out => {
+  console.log('-----------------------------------------------------------------');
+  console.log(
+    drawCoordinateGrid(
+      out.map((seat) => {
+        return createCoordinateGridMember(seat.x, seat.y, 'x')
+      }), ' '
+    )
+  );
+});

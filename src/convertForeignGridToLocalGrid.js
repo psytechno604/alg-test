@@ -50,6 +50,15 @@ function rowCenterY(inp, lbl) {
 function setIndex(input) {
   let index = 0;
   input.map(el => {
+    if (! (el.width>0)) {
+      throw 'all seats should have width>0';
+    }
+    if (! (el.x>=0)) {
+      throw 'all seats should have x>=0';
+    }
+    if (! (el.y>=0)) {
+      throw 'all seats should have y>=0';
+    }
     el.index = index;
     el.label = undefined;
     index++;
